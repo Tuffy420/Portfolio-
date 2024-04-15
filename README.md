@@ -1,2 +1,2 @@
 url
-file:///Users/tuffyvincy/Desktop/IWT/Interactive-Portfolio-master/index.html
+https://tuffy420.github.io/Portfolio-/
