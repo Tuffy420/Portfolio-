@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chris Vashni .V (Tuffy) | Glassy Modern Portfolio & Live Git Sync</title>
+  <meta name="description" content="Portfolio of Chris Vashni .V (Tuffy) - Agentic AI Architect, Full-Stack Engineer, and Enterprise Systems Builder. Real-time dynamic sync with GitHub.">
+  
+  <!-- Google Fonts: Outfit & Inter & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- FontAwesome 6 Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Chart.js for dynamic language visualization -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+
+  <!-- Custom Glassy Modern Styling -->
+  <link rel="stylesheet" href="css/glassy.css">
+</head>
+<body>
+
+  <!-- Ambient Animated Glow Mesh Behind All Elements -->
+  <div class="ambient-glow-wrapper">
+    <div class="glow-orb glow-orb-1"></div>
+    <div class="glow-orb glow-orb-2"></div>
+    <div class="glow-orb glow-orb-3"></div>
+  </div>
+
+  <!-- Navigation Bar with Frosted Glass -->
+  <nav class="glass-nav">
+    <a href="#hero" class="nav-brand">
+      <img src="https://avatars.githubusercontent.com/u/114575840?v=4" alt="Tuffy" class="nav-brand-avatar" id="navAvatarImg">
+      <span>V. Tuffy<span class="brand-dot"></span></span>
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="#hero" class="active">Home</a></li>
+      <li><a href="#strengths">Strengths</a></li>
+      <li><a href="#projects">Dynamic Projects</a></li>
+      <li><a href="#git-pulse">Git Pulse</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+
+    <div class="nav-actions">
+      <button id="syncGitBtn" class="btn-glass btn-sync-glass" title="Sync Live Git Repositories">
+        <i class="fas fa-rotate"></i>
+        <span>Sync Git</span>
+      </button>
+      <button id="openSettingsBtn" class="btn-glass" title="GitHub Config & Customization">
+        <i class="fas fa-gear"></i>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Main Container -->
+  <main class="container">
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero-section">
+      <div class="hero-grid">
+        
+        <!-- Left: Headline & Bio -->
+        <div>
+          <div class="hero-badge-live">
+            <span class="pulse-dot"></span>
+            <span>Live Dynamic Portfolio • Auto-Sync with Git</span>
+          </div>
+
+          <h1 class="hero-title">
+            Hi, I'm <span class="gradient-text">Chris Vashni .V</span><br>
+            (Tuffy)
+          </h1>
+
+          <p class="hero-subtitle">
+            <strong>Agentic AI Architect & Full-Stack Systems Engineer</strong>. Building autonomous multi-agent reasoning systems, high-throughput FastAPI services, and mission-critical enterprise applications.
+          </p>
+
+          <div class="hero-cta-group">
+            <a href="#projects" class="btn-glass btn-primary-glass">
+              <i class="fas fa-rocket"></i>
+              <span>Explore Projects</span>
+            </a>
+            <a href="#git-pulse" class="btn-glass">
+              <i class="fas fa-code-commit"></i>
+              <span>View Git Pulse</span>
+            </a>
+            <a href="https://github.com/Tuffy420" target="_blank" class="btn-glass">
+              <i class="fab fa-github"></i>
+              <span>GitHub Profile</span>
+            </a>
+          </div>
+
+          <!-- Dynamic GitHub Real-Time Meta Stats -->
+          <div class="hero-meta-list">
+            <div class="hero-meta-item">
+              <span class="hero-meta-value" id="statTotalRepos">9+</span>
+              <span class="hero-meta-label">Git Repos</span>
+            </div>
+            <div class="hero-meta-item">
+              <span class="hero-meta-value" id="statTotalStars">30+</span>
+              <span class="hero-meta-label">GitHub Stars</span>
+            </div>
+            <div class="hero-meta-item">
+              <span class="hero-meta-value" id="statLatestPush">Just now</span>
+              <span class="hero-meta-label">Last Push</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Glass Interactive Profile Terminal -->
+        <div>
+          <div class="hero-glass-card glass-panel glass-panel-glow">
+            <div class="card-top-bar">
+              <div class="card-dots">
+                <span class="card-dot card-dot-red"></span>
+                <span class="card-dot card-dot-yellow"></span>
+                <span class="card-dot card-dot-green"></span>
+              </div>
+              <div class="live-badge-glass">
+                <i class="fas fa-wifi"></i>
+                <span id="gitSyncStatusText">Git Sync: Connected</span>
+              </div>
+            </div>
+
+            <div class="hero-profile-box">
+              <img src="https://avatars.githubusercontent.com/u/114575840?v=4" alt="Tuffy" class="hero-profile-avatar" id="heroAvatarImg">
+              <div class="hero-profile-info">
+                <h3 id="heroProfileName">Chris Vashni .V (Tuffy)</h3>
+                <p>@Tuffy420 • Chennai / Kovilpatti</p>
+              </div>
+            </div>
+
+            <!-- Code block showing engineer profile -->
+            <div class="hero-code-block">
+              <div><span class="code-keyword">const</span> <span class="code-prop">engineer</span> = {</div>
+              <div style="padding-left: 1rem;"><span class="code-prop">name</span>: <span class="code-string">"Chris Vashni .V"</span>,</div>
+              <div style="padding-left: 1rem;"><span class="code-prop">role</span>: <span class="code-string">"Agentic AI & Full-Stack Engineer"</span>,</div>
+              <div style="padding-left: 1rem;"><span class="code-prop">coreStack</span>: [<span class="code-string">"Python"</span>, <span class="code-string">"FastAPI"</span>, <span class="code-string">"React"</span>, <span class="code-string">"Gemini"</span>],</div>
+              <div style="padding-left: 1rem;"><span class="code-prop">architecture</span>: <span class="code-string">"Multi-Agent Orchestration"</span>,</div>
+              <div style="padding-left: 1rem;"><span class="code-prop">openForWork</span>: <span class="code-num">true</span>,</div>
+              <div style="padding-left: 1rem;"><span class="code-prop">liveSync</span>: <span class="code-keyword">()</span> =&gt; <span class="code-string">"Instant Git Sync"</span></div>
+              <div>};</div>
+            </div>
+
+            <div style="display: flex; gap: 0.5rem; justify-content: flex-end;">
+              <a href="#contact" class="btn-glass" style="font-size: 0.8rem; padding: 0.4rem 0.9rem;">
+                <i class="far fa-envelope"></i> Message Me
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Real-Time Live Sync Status Banner -->
+    <div class="git-sync-banner glass-panel">
+      <div class="sync-info">
+        <div class="sync-icon-wrapper">
+          <i class="fab fa-git-alt"></i>
+        </div>
+        <div class="sync-details">
+          <h4>
+            <span>Dynamic Git Synchronizer</span>
+            <span class="badge-featured" style="font-size: 0.7rem; padding: 0.15rem 0.5rem;">Auto-Live</span>
+          </h4>
+          <p id="syncBannerTimestamp">Whenever you upload or commit files to GitHub, this portfolio updates automatically.</p>
+        </div>
+      </div>
+
+      <div class="sync-stats-row">
+        <div class="sync-mini-stat">
+          <span id="syncBannerRepoCount">9</span>
+          <small>Tracked Repos</small>
+        </div>
+        <div class="sync-mini-stat">
+          <span id="syncBannerCommitCount">10</span>
+          <small>Recent Pulses</small>
+        </div>
+        <div class="sync-mini-stat">
+          <span style="color: #34d399;">Active</span>
+          <small>API State</small>
+        </div>
+      </div>
+    </div>
+
+    <!-- Technical Strengths Matrix Section -->
+    <section id="strengths" class="section-padding">
+      <div class="section-header">
+        <span class="section-tag">Codebase & Git Analysis</span>
+        <h2 class="section-title">Where My Strengths Lie</h2>
+        <p class="section-desc">
+          A deep dive into my architectural mastery and hands-on technical skills, analyzed directly from my GitHub repositories and local production systems.
+        </p>
+      </div>
+
+      <div class="strengths-grid">
+        
+        <!-- Strength 1: Agentic AI & LLMs -->
+        <div class="strength-card glass-panel" style="--card-accent: #6366f1; --icon-bg: rgba(99, 102, 241, 0.15); --icon-color: #818cf8;">
+          <div class="strength-icon">
+            <i class="fas fa-brain"></i>
+          </div>
+          <h3 class="strength-title">Agentic AI & LLM Systems</h3>
+          <p class="strength-desc">
+            Deep experience architecting multi-agent reasoning frameworks (FastAPI + Google Gemini). Implemented specialized autonomous agents including Valuation, Technical, News Sentiment, and Risk agents with dynamic tool calling and structured Pydantic outputs.
+          </p>
+          <div class="strength-tags">
+            <span class="tech-tag">Multi-Agent Systems</span>
+            <span class="tech-tag">Google Gemini</span>
+            <span class="tech-tag">LangChain / Patterns</span>
+            <span class="tech-tag">Financial LLMs</span>
+            <span class="tech-tag">Prompt Engineering</span>
+          </div>
+        </div>
+
+        <!-- Strength 2: Scalable Backend & Microservices -->
+        <div class="strength-card glass-panel" style="--card-accent: #06b6d4; --icon-bg: rgba(6, 182, 212, 0.15); --icon-color: #38bdf8;">
+          <div class="strength-icon">
+            <i class="fas fa-server"></i>
+          </div>
+          <h3 class="strength-title">Scalable Backend Engineering</h3>
+          <p class="strength-desc">
+            Crafting enterprise REST APIs with Spring Boot 3.3 (Java 21) and Python FastAPI. Expert in PostgreSQL pipelines, 256-bit JWT authentication, automated background crons, Redis caching, and robust automated test suites.
+          </p>
+          <div class="strength-tags">
+            <span class="tech-tag">Java 21 (Spring Boot 3.3)</span>
+            <span class="tech-tag">Python (FastAPI)</span>
+            <span class="tech-tag">PostgreSQL & JPA</span>
+            <span class="tech-tag">Spring Security & JWT</span>
+            <span class="tech-tag">Redis & Docker</span>
+          </div>
+        </div>
+
+        <!-- Strength 3: Modern Reactive Frontend -->
+        <div class="strength-card glass-panel" style="--card-accent: #38bdf8; --icon-bg: rgba(56, 189, 248, 0.15); --icon-color: #38bdf8;">
+          <div class="strength-icon">
+            <i class="fas fa-laptop-code"></i>
+          </div>
+          <h3 class="strength-title">Modern Reactive UI / UX</h3>
+          <p class="strength-desc">
+            Building performant, responsive client applications using React 18, Vite, TypeScript, and Tailwind CSS. Proficient in TanStack Query for server-state caching, Recharts data visualization, Lucide icons, and modern glassmorphic designs.
+          </p>
+          <div class="strength-tags">
+            <span class="tech-tag">React & TypeScript</span>
+            <span class="tech-tag">Tailwind CSS</span>
+            <span class="tech-tag">TanStack Query</span>
+            <span class="tech-tag">Vite</span>
+            <span class="tech-tag">Glassmorphism</span>
+          </div>
+        </div>
+
+        <!-- Strength 4: Enterprise Industrial Software -->
+        <div class="strength-card glass-panel" style="--card-accent: #10b981; --icon-bg: rgba(16, 185, 129, 0.15); --icon-color: #34d399;">
+          <div class="strength-icon">
+            <i class="fas fa-industry"></i>
+          </div>
+          <h3 class="strength-title">Industrial & Enterprise Solutions</h3>
+          <p class="strength-desc">
+            Architected mission-critical desktop systems like <em>WeighPro</em>: automated weighbridge vehicle scale ticketing, gross/tare weight calculation, ledger accounting, customer ledger billing, and offline resilient storage engines.
+          </p>
+          <div class="strength-tags">
+            <span class="tech-tag">Weighbridge Systems</span>
+            <span class="tech-tag">Transaction Ledgers</span>
+            <span class="tech-tag">Offline SPAs</span>
+            <span class="tech-tag">Java Enterprise</span>
+            <span class="tech-tag">Industrial Workflow</span>
+          </div>
+        </div>
+
+        <!-- Strength 5: Automation & Custom Integrations -->
+        <div class="strength-card glass-panel" style="--card-accent: #f59e0b; --icon-bg: rgba(245, 158, 11, 0.15); --icon-color: #fbbf24;">
+          <div class="strength-icon">
+            <i class="fas fa-bolt"></i>
+          </div>
+          <h3 class="strength-title">Automation & System Integrations</h3>
+          <p class="strength-desc">
+            Creating specialized background automation scripts, third-party API orchestrations (WhatsApp Business API, Finnhub, Alpha Vantage, Yahoo Finance), automated scrapers, and headless workflows that streamline business operations.
+          </p>
+          <div class="strength-tags">
+            <span class="tech-tag">Python Automation</span>
+            <span class="tech-tag">Financial APIs</span>
+            <span class="tech-tag">WhatsApp API</span>
+            <span class="tech-tag">REST Webhooks</span>
+            <span class="tech-tag">Data Extraction</span>
+          </div>
+        </div>
+
+        <!-- Strength 6: Core Computer Science & Algorithms -->
+        <div class="strength-card glass-panel" style="--card-accent: #a855f7; --icon-bg: rgba(168, 85, 247, 0.15); --icon-color: #c084fc;">
+          <div class="strength-icon">
+            <i class="fas fa-code"></i>
+          </div>
+          <h3 class="strength-title">CS Fundamentals & Algorithms</h3>
+          <p class="strength-desc">
+            B.Tech in Computer Engineering. Solid grasp of Data Structures, Algorithmic Complexity, Operating Systems, Database Internals, and clean architecture principles. Active problem solver across HackerRank and competitive programming.
+          </p>
+          <div class="strength-tags">
+            <span class="tech-tag">Data Structures & Algo</span>
+            <span class="tech-tag">C++ & Java</span>
+            <span class="tech-tag">HackerRank</span>
+            <span class="tech-tag">System Design</span>
+            <span class="tech-tag">Clean Architecture</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Dynamic Projects Section -->
+    <section id="projects" class="section-padding">
+      <div class="section-header">
+        <span class="section-tag">Live GitHub Repositories</span>
+        <h2 class="section-title">Projects Showcase</h2>
+        <p class="section-desc">
+          Real-time dynamic feed. Pushing new repositories or commits to GitHub automatically synchronizes and updates these project cards.
+        </p>
+      </div>
+
+      <!-- Filter Tabs and Search Bar -->
+      <div class="projects-filter-bar">
+        <div class="filter-tabs">
+          <button class="filter-tab active" data-filter="all">All Projects</button>
+          <button class="filter-tab" data-filter="ai">Agentic AI & ML</button>
+          <button class="filter-tab" data-filter="fullstack">Full-Stack & Web</button>
+          <button class="filter-tab" data-filter="enterprise">Enterprise Systems</button>
+        </div>
+
+        <div class="search-glass">
+          <i class="fas fa-search"></i>
+          <input type="text" id="projectSearchInput" placeholder="Search by name, tech, or topic...">
+        </div>
+      </div>
+
+      <!-- Projects Grid populated dynamically by github-sync.js -->
+      <div class="projects-grid" id="projectsContainer">
+        <!-- Rendered by JavaScript -->
+      </div>
+    </section>
+
+    <!-- Live Git Commit Pulse & Insights Section -->
+    <section id="git-pulse" class="section-padding">
+      <div class="section-header">
+        <span class="section-tag">Real-Time Activity</span>
+        <h2 class="section-title">Live Git Pulse & Tech Radar</h2>
+        <p class="section-desc">
+          Live stream of recent commits and real-time language breakdown calculated directly from my GitHub activity.
+        </p>
+      </div>
+
+      <div class="insights-grid">
+        
+        <!-- Left: Live Commit Activity Stream -->
+        <div class="commit-feed-container glass-panel">
+          <div class="feed-header">
+            <div class="feed-title">
+              <i class="fas fa-code-commit" style="color: var(--accent-secondary);"></i>
+              <span>Recent Commit Activity</span>
+            </div>
+            <span class="live-badge-glass" style="font-size: 0.7rem;">Live Feed</span>
+          </div>
+
+          <div class="commit-list" id="commitFeedList">
+            <!-- Rendered dynamically by github-sync.js -->
+          </div>
+        </div>
+
+        <!-- Right: Real-time Language Breakdown Chart -->
+        <div class="chart-card glass-panel">
+          <div style="margin-bottom: 0.75rem;">
+            <h3 style="font-size: 1.25rem; font-weight: 700; color: #ffffff;">Languages Distribution</h3>
+            <p style="font-size: 0.85rem; color: var(--text-secondary);">Calculated across public GitHub repositories</p>
+          </div>
+
+          <div class="chart-wrapper">
+            <canvas id="languageChartCanvas"></canvas>
+          </div>
+
+          <div style="font-size: 0.8rem; color: var(--text-muted); margin-top: 0.5rem;">
+            <i class="fas fa-arrows-rotate"></i> Updated dynamically on every git push
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Education & Background Section -->
+    <section id="education" class="section-padding">
+      <div class="section-header">
+        <span class="section-tag">Background & Milestones</span>
+        <h2 class="section-title">Education & Journey</h2>
+        <p class="section-desc">
+          Academic foundation and milestones shaping my engineering philosophy.
+        </p>
+      </div>
+
+      <div class="timeline-track">
+        
+        <!-- Timeline Item 1 -->
+        <div class="timeline-node">
+          <div class="timeline-card glass-panel">
+            <div class="timeline-date">B.Tech In Computer Engineering</div>
+            <h3 class="timeline-title">National Engineering College Kovilpatti</h3>
+            <div class="timeline-subtitle">Computer Science & Engineering</div>
+            <p class="timeline-details">
+              Acquired deep fundamentals in Data Structures, Advanced Algorithms, Database Management Systems (DBMS), Operating Systems, Computer Architecture, and Computer Networks. Built strong competitive coding skills and software engineering principles.
+            </p>
+          </div>
+        </div>
+
+        <!-- Timeline Item 2 -->
+        <div class="timeline-node">
+          <div class="timeline-card glass-panel">
+            <div class="timeline-date">Specialization & Projects</div>
+            <h3 class="timeline-title">Agentic AI & Full-Stack Systems</h3>
+            <div class="timeline-subtitle">Production Deployments & Architecture</div>
+            <p class="timeline-details">
+              Architected and shipped production platforms: GraceConnect Enterprise Church Management (Spring Boot 3.3 + PostgreSQL on Render + Vercel SPA), Agentic AI Stock Analyzer featuring multi-agent reasoning, WeighPro industrial scale system, and specialized domain AI assistants.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Contact & Connect Section -->
+    <section id="contact" class="section-padding">
+      <div class="section-header">
+        <span class="section-tag">Get in Touch</span>
+        <h2 class="section-title">Let's Build Something Great</h2>
+        <p class="section-desc">
+          Interested in collaborating on AI agents, high-scale web architectures, or consulting? Reach out directly.
+        </p>
+      </div>
+
+      <div class="contact-container">
+        <div class="contact-card glass-panel">
+          
+          <!-- Contact Info & Socials -->
+          <div class="contact-info">
+            <h3>Reach Out Directly</h3>
+            <p>
+              I am open to discussions on cutting-edge AI engineering, full-stack development, and enterprise systems. My inbox is always open.
+            </p>
+
+            <div class="social-glass-links">
+              <a href="mailto:tuffytuffy64@gmail.com" class="social-glass-item">
+                <i class="far fa-envelope" style="color: #f43f5e;"></i>
+                <span>tuffytuffy64@gmail.com</span>
+              </a>
+
+              <a href="https://github.com/Tuffy420" target="_blank" class="social-glass-item">
+                <i class="fab fa-github" style="color: #ffffff;"></i>
+                <span>github.com/Tuffy420</span>
+              </a>
+
+              <a href="https://www.linkedin.com/in/tuffy-tuffy-5710b3178" target="_blank" class="social-glass-item">
+                <i class="fab fa-linkedin-in" style="color: #38bdf8;"></i>
+                <span>LinkedIn Profile</span>
+              </a>
+
+              <a href="https://www.hackerrank.com/profile/h2112030" target="_blank" class="social-glass-item">
+                <i class="fab fa-hackerrank" style="color: #10b981;"></i>
+                <span>HackerRank Profile</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Glass Contact Form -->
+          <form class="contact-form" id="portfolioContactForm">
+            <div class="form-group">
+              <label for="contactName">Your Name</label>
+              <input type="text" id="contactName" placeholder="e.g. Alex Smith" required>
+            </div>
+
+            <div class="form-group">
+              <label for="contactEmail">Your Email</label>
+              <input type="email" id="contactEmail" placeholder="e.g. alex@example.com" required>
+            </div>
+
+            <div class="form-group">
+              <label for="contactMessage">Message</label>
+              <textarea id="contactMessage" rows="4" placeholder="Let's talk about a project or collaboration..." required></textarea>
+            </div>
+
+            <button type="submit" class="btn-glass btn-primary-glass" style="width: 100%; padding: 0.85rem;">
+              <i class="fas fa-paper-plane"></i>
+              <span>Send Message</span>
+            </button>
+          </form>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Glass Footer -->
+  <footer class="glass-footer">
+    <div class="container footer-content">
+      <div style="font-weight: 700; font-size: 1.1rem; color: #ffffff;">
+        Chris Vashni .V (Tuffy)
+      </div>
+      <p class="footer-note">
+        Crafted with Glassmorphic UI • Dynamically Powered by Live GitHub API Engine • 2026
+      </p>
+      <div style="font-size: 0.8rem; color: var(--text-muted);">
+        Every commit pushed to GitHub automatically updates this portfolio in real-time.
+      </div>
+    </div>
+  </footer>
+
+  <!-- GitHub Settings & Live Config Modal -->
+  <div class="glass-modal-overlay" id="settingsModalOverlay">
+    <div class="glass-modal">
+      <div class="modal-header">
+        <h3><i class="fab fa-github"></i> Git Sync Settings</h3>
+        <button class="modal-close-btn" id="closeSettingsBtn">&times;</button>
+      </div>
+
+      <p style="font-size: 0.875rem; color: var(--text-secondary); margin-bottom: 1.5rem;">
+        Configure the GitHub username and optional Personal Access Token (PAT). Any updates to repositories or commits will be fetched automatically.
+      </p>
+
+      <div class="form-group" style="margin-bottom: 1rem;">
+        <label for="settingGhUsername">GitHub Username</label>
+        <input type="text" id="settingGhUsername" value="Tuffy420" placeholder="e.g. Tuffy420">
+      </div>
+
+      <div class="form-group" style="margin-bottom: 1.5rem;">
+        <label for="settingGhToken">Personal Access Token (Optional)</label>
+        <input type="password" id="settingGhToken" placeholder="ghp_... (Increases API rate limits or private repos)">
+        <small style="color: var(--text-muted); font-size: 0.75rem; margin-top: 0.25rem;">
+          Public repos do not require a token (60 free requests/hr).
+        </small>
+      </div>
+
+      <div style="display: flex; gap: 0.75rem; justify-content: flex-end;">
+        <button class="btn-glass btn-primary-glass" id="saveSettingsBtn">
+          <i class="fas fa-floppy-disk"></i> Save & Sync
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/github-sync.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
+
