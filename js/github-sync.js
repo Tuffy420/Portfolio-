@@ -19,7 +19,7 @@ const GITHUB_CONFIG = {
       forks: 3,
       language: 'Python',
       githubUrl: 'https://github.com/Tuffy420/StockAnalyzer',
-      demoUrl: 'https://stockanalyzer-g147.onrender.com/docs',
+      demoUrl: 'https://stock-analyzer-zeta-navy.vercel.app',
       featured: true,
       badge: 'Flagship Multi-Agent AI'
     },
@@ -154,7 +154,7 @@ class GitSyncEngine {
     this.renderLoadingStates();
 
     // Check Local Cache
-    const cacheKey = `tuffy_gh_cache_v3_${this.username}`;
+    const cacheKey = `tuffy_gh_cache_v4_${this.username}`;
     const cached = localStorage.getItem(cacheKey);
 
     if (!forceRefresh && cached) {
@@ -211,7 +211,7 @@ class GitSyncEngine {
       this.computeLanguages();
 
       // Save to Cache
-      const cacheKey = `tuffy_gh_cache_v3_${this.username}`;
+      const cacheKey = `tuffy_gh_cache_v4_${this.username}`;
       localStorage.setItem(cacheKey, JSON.stringify({
         timestamp: Date.now(),
         userProfile: this.userProfile,
