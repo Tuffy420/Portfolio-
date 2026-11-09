@@ -33,7 +33,7 @@ const GITHUB_CONFIG = {
       forks: 4,
       language: 'Java',
       githubUrl: 'https://github.com/Tuffy420/Chruch-Management',
-      demoUrl: 'https://church-management-backend-hwtc.onrender.com/swagger-ui.html',
+      demoUrl: 'https://chruch-management-frontend.vercel.app',
       featured: true,
       badge: 'Full-Stack Enterprise & Cloud'
     },
@@ -154,7 +154,7 @@ class GitSyncEngine {
     this.renderLoadingStates();
 
     // Check Local Cache
-    const cacheKey = `tuffy_gh_cache_${this.username}`;
+    const cacheKey = `tuffy_gh_cache_v2_${this.username}`;
     const cached = localStorage.getItem(cacheKey);
 
     if (!forceRefresh && cached) {
@@ -211,7 +211,7 @@ class GitSyncEngine {
       this.computeLanguages();
 
       // Save to Cache
-      const cacheKey = `tuffy_gh_cache_${this.username}`;
+      const cacheKey = `tuffy_gh_cache_v2_${this.username}`;
       localStorage.setItem(cacheKey, JSON.stringify({
         timestamp: Date.now(),
         userProfile: this.userProfile,
